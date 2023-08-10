@@ -15,7 +15,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
 private:
     Ui::MainWindow *ui;
+
+
+public slots:
+    void ShowSend();  // 点击发送在文本框内显示
+
+
+
+
+
 };
 #endif // MAINWINDOW_H
