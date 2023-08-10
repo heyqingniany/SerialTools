@@ -8,6 +8,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    QPalette backColor = QPalette();
+    backColor.setColor(QPalette::Window, "#19232d");
+
+    this->setAutoFillBackground(true);
+    this->setPalette(backColor);
+
+
+
     connect(ui->sendButton,SIGNAL(clicked()), this, SLOT(ShowSend()) );
 
 }
