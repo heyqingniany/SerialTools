@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setPalette(backColor);
     ui->plainTextEdit->setAutoFillBackground(true);
     ui->plainTextEdit->setBackgroundVisible(true);
+    ui->plainTextEdit->setReadOnly(true);
     ui->plainTextEdit->setPalette(backColor);
 
 
