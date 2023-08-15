@@ -4,12 +4,17 @@
 #include <QLocale>
 #include <QTranslator>
 
+#include <QDebug>
 #include <QSerialPortInfo>
 #include <QSerialPort>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    const auto serialPortInfos = QSerialPortInfo::availablePorts();
+    QDebug() << "\n"
+             <<"Port"<<serialPortInfos.;
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
