@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     for(const QSerialPortInfo &portInfo:serialPortInfos)
     {
 //        combtxt.append(portInfo.portName());
-        ui->comboBox->addItems(portInfo.portName(),0);
+        ui->comboBox->addItem(portInfo.portName());
     }
 //    ui->comboBox->addItems(combtxt);
 
