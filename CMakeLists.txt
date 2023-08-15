@@ -11,8 +11,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools SerialPort)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
-find_package(Qt6 REQUIRED COMPONENTS SerialPort)
 
 set(TS_FILES SerialTools_en_AS.ts)
 
@@ -51,9 +51,14 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
+<<<<<<< Updated upstream
 target_link_libraries(SerialTools PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(SerialTools PRIVATE Qt${QT_VERSION_MAJOR}::SerialPort)
 
+=======
+target_link_libraries(SerialTools PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+                                            Qt6::SerialPort)
+>>>>>>> Stashed changes
 
 set_target_properties(SerialTools PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
