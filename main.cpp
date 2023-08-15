@@ -4,6 +4,7 @@
 #include <QLocale>
 #include <QTranslator>
 
+#include <QSerialPortInfo>
 #include <QSerialPort>
 
 int main(int argc, char *argv[])
