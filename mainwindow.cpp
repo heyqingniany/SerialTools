@@ -2,6 +2,9 @@
 #include "./ui_mainwindow.h"
 #include <QTime>
 
+#include <QSerialPortInfo>
+#include <QSerialPort>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,6 +20,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->plainTextEdit->setBackgroundVisible(true);
     ui->plainTextEdit->setReadOnly(true);
     ui->plainTextEdit->setPalette(backColor);
+
+    const auto serialPortInfos = QSerialPortInfo::availablePorts();
+    QStringList combtxt;
+    for(const QSerialPortInfo &portInfo:serialPortInfos)
+    {
+//        combtxt.append(portInfo.portName());
+        ui->comboBox->addItems(portInfo.portName(),0);
+    }
+//    ui->comboBox->addItems(combtxt);
 
 
 
