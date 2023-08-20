@@ -7,6 +7,7 @@
 #include <QSerialPort>
 #include <QMessageBox>
 #include <QElapsedTimer>
+#include <QIODevice>
 
 #include "tmylabel.h"
 
@@ -21,20 +22,15 @@ MainWindow::MainWindow(QWidget *parent)
     //显示串口列表
     foreach(QSerialPortInfo portInfo, QSerialPortInfo::availablePorts())
         ui->comboCom_Port->addItem(portInfo.portName()+":"+portInfo.description());
-    ui->actCom_Open->setEnabled(ui->comboCom_Port->count()>0);
-    connect(&comPort,&QIODevice::readyRead(),this, &MainWindow::do_com_readyRead);
+    ui->actCom_Open->setEnabled(ui->comboCom_Port->count()>0);   //如果有串口,则使能按键
+
+    connect(&comPort,&QIODevice::readyRead, this, &MainWindow::do_com_readyRead);
     //添加标准波特率
     ui->comboCom_Baud->clear();
     foreach (qint32 baud, QSerialPortInfo::standardBaudRates()) {
         ui->comboCom_Baud->addItem(QString::number(baud));
     }
     ui->comboCom_Baud->setCurrentText("115200"); //默认使用115200
-
-// 为frame_cmdA和frame_cmadB里面的TMyLable标签的clicked信号关联槽函数
-    QList<TMyLabel*> labList = ui->frame_CmdA->findChildren<TMyLabel*>();
-    foreach (TMyLabel *lab, labList) {
-        connect(lab, SIGNAL(clicked()), this, SLOT(do_label_clicked()));
-    }
 
     QApplication::setOrganizationName("WWB-Qt");  // 设置应用程序参数,用于注册表
     QApplication::setApplicationName("my first serial try");
