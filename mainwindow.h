@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSerialPort>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,9 +21,19 @@ public:
 private:
     Ui::MainWindow *ui;
 
+private:
+    QSerialPort comPort;                               // 串口对象
+    void uartSend(QString cmd);                        // 向串口发送字符串数据
+    void delayMs(int ms);                              // 毫秒级延时
+    void loadFromReg();                                // 从注册表载入界面数据
+    void saveToReg();                                  // 保存到注册表
+    void closeEvent(QCloseEvent *event);
 
-public slots:
-    void ShowSend();  // 点击发送在文本框内显示
+private slots:
+    void do_com_readyRead();                            // 串口有数据可读
+    void do_label_clicked();                                // 与label的click()信号关联
+
+
 
 
 

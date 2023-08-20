@@ -22,6 +22,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        serialtrans.cpp
+        serialtrans.h
+        tmylabel.h
+        tmylabel.cpp
         ${TS_FILES}
 )
 

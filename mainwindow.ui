@@ -37,7 +37,7 @@
    <widget class="QPushButton" name="sendButton">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>590</x>
       <y>250</y>
       <width>75</width>
       <height>23</height>
@@ -50,7 +50,7 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>670</x>
       <y>250</y>
       <width>80</width>
       <height>19</height>
@@ -60,38 +60,63 @@
      <string>Hex</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="comboCom_Port">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>100</y>
+      <x>70</x>
+      <y>60</y>
       <width>61</width>
       <height>22</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>TCP</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>UDP</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Serial</string>
-     </property>
-    </item>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
+   <widget class="QPlainTextEdit" name="textCOM">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>30</y>
-      <width>251</width>
+      <width>451</width>
       <height>201</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboCom_Baud">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>90</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboCom_DataBit">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>140</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboCom_StopBit">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>200</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboCom_Parity">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>240</y>
+      <width>69</width>
+      <height>22</height>
      </rect>
     </property>
    </widget>
